@@ -34,7 +34,7 @@ public class BukkitJingleNotePlayer extends JingleNotePlayer {
             case PIANO:
                 return Sound.BLOCK_NOTE_HARP;
             case GUITAR:
-                return Sound.BLOCK_NOTE_PLING;
+                return Sound.BLOCK_NOTE_GUITAR;
             case BASS:
                 return Sound.BLOCK_NOTE_BASS;
             case BASS_GUITAR:
@@ -45,6 +45,14 @@ public class BukkitJingleNotePlayer extends JingleNotePlayer {
                 return Sound.BLOCK_NOTE_BASEDRUM;
             case SNARE_DRUM:
                 return Sound.BLOCK_NOTE_SNARE;
+            case BELL:
+                return Sound.BLOCK_NOTE_BELL;
+            case CHIME:
+                return Sound.BLOCK_NOTE_CHIME;
+            case FLUTE:
+                return Sound.BLOCK_NOTE_FLUTE;
+            case XYLOPHONE:
+                return Sound.BLOCK_NOTE_XYLOPHONE;
             default:
                 return Sound.BLOCK_NOTE_HARP;
         }

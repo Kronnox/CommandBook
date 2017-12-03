@@ -40,21 +40,21 @@ import javax.sound.midi.ShortMessage;
 public class MidiJingleSequencer implements JingleSequencer {
 
     private static final int[] instruments = {
-        0, 0, 0, 0, 0, 0, 0, 5, // 8
-        6, 0, 0, 0, 0, 0, 0, 0, // 16
-        0, 0, 0, 0, 0, 0, 0, 5, // 24
+        0, 0, 0, 0, 0, 0, 5, 5, // 8
+        7, 8, 0, 7, 10, 10, 7, 5, // 16
+        0, 0, 0, 0, 0, 0, 9, 0, // 24
         5, 5, 5, 5, 5, 5, 5, 5, // 32
         6, 6, 6, 6, 6, 6, 6, 6, // 40
         5, 5, 5, 5, 5, 5, 5, 2, // 48
         5, 5, 5, 5, 0, 0, 0, 0, // 56
         0, 0, 0, 0, 0, 0, 0, 0, // 64
         0, 0, 0, 0, 0, 0, 0, 0, // 72
-        0, 0, 0, 0, 0, 0, 0, 0, // 80
+        9, 9, 9, 9, 9, 9, 9, 9, // 80
         0, 0, 0, 0, 0, 0, 0, 0, // 88
         0, 0, 0, 0, 0, 0, 0, 0, // 96
         0, 0, 0, 0, 0, 0, 0, 0, // 104
         0, 0, 0, 0, 0, 0, 0, 0, // 112
-        1, 1, 1, 3, 1, 1, 1, 5, // 120
+        7, 1, 1, 3, 1, 1, 1, 5, // 120
         1, 1, 1, 1, 1, 2, 4, 3, // 128
     };
 
@@ -180,7 +180,7 @@ public class MidiJingleSequencer implements JingleSequencer {
         }
     }
 
-    protected static byte toMCInstrument(Integer patch) {
+    protected static int toMCInstrument(Integer patch) {
         if (patch == null) {
             return 0;
         }
@@ -188,10 +188,10 @@ public class MidiJingleSequencer implements JingleSequencer {
             return 0;
         }
 
-        return (byte) instruments[patch];
+        return instruments[patch];
     }
 
-    protected Instrument toMCSound(byte instrument) {
+    protected Instrument toMCSound(int instrument) {
         switch (instrument) {
             case 1:
                 return Instrument.BASS_GUITAR;
@@ -205,6 +205,14 @@ public class MidiJingleSequencer implements JingleSequencer {
                 return Instrument.GUITAR;
             case 6:
                 return Instrument.BASS;
+            case 7:
+                return Instrument.BELL;
+            case 8:
+                return Instrument.CHIME;
+            case 9:
+                return Instrument.FLUTE;
+            case 10:
+                return Instrument.XYLOPHONE;
             default:
                 return Instrument.PIANO;
         }
